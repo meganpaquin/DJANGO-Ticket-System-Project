@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ticket Details
+{% endblock title %}
+
+
+{% block contents %}
+        <div class="container">
+            <h1>{{ticket.title}}</h1>
+            <h5>{{ticket.description}}</h5>
+            <h5>{{ticket.created_on}}</h5>
+            <h5>{{ticket.author.email}}</h5>
+            <h5>{{ticket.status}}</h5>
+            <br>
+            <br>
+        </div>
+
+{% endblock contents %}

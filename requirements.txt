@@ -1,0 +1,12 @@
+asgiref==3.5.2
+dj-database-url==1.0.0
+dj-email-url==1.0.6
+Django==4.1.1
+django-cache-url==3.4.2
+environs==9.5.0
+marshmallow==3.18.0
+packaging==21.3
+pyparsing==3.0.9
+python-dotenv==0.21.0
+sqlparse==0.4.3
+whitenoise==6.2.0

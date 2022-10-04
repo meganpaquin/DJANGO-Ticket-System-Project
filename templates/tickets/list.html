@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Tickets
+{% endblock title %}
+
+
+{% block contents %}
+
+    <h1>Tickets</h1>    
+
+    {% for ticket in ticket_list %}
+    <div class="container">
+        <h5>{{ticket.title}}</h5>
+        <h5>{{ticket.description}}</h5>
+        <h5>{{ticket.created_on}}</h5>
+        <h5>{{ticket.status}}</h5>
+        <br>
+        <br>
+    </div>
+
+    {% endfor %}
+{% endblock contents %}

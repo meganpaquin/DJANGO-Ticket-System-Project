@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Change Ticket
+{% endblock title %}
+
+
+{% block contents %}
+    <h1>Update Ticket</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update" class="card-btns">
+    </form>
+{% endblock contents %}

@@ -5,7 +5,7 @@ from .models import Ticket
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 class TicketListView(ListView):
-    template_name = "tickets/list/html"
+    template_name = "tickets/list.html"
     model = Ticket
 
 
@@ -16,11 +16,16 @@ class TicketDetailView(DetailView):
 class TicketCreateView(LoginRequiredMixin, CreateView):
     template_name = "tickets/new.html"
     model = Ticket
-    fields = []
+    fields = ["title", "description"]
+
+    def form_valid(self,form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "tickets/update.html"
-    model = Ticketfields = []
+    model = Ticket
+    fields = ["title", "description", "status"]
 
     def test_func(self):
         post_obj = self.get_object()

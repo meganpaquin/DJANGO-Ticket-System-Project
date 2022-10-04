@@ -7,11 +7,12 @@ class Ticket(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    author= models.ForeignKey(
+    author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
     )
     status_choices = models.TextChoices('status', 'Open Complete Archived')
+    
     status = models.CharField(default="Open", choices=status_choices.choices, max_length=10)
 
     #change the admin page list view to show the title
