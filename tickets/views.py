@@ -40,5 +40,3 @@ class TicketDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         post_obj = self.get_object()
         return post_obj.author == self.request.user
 
-
-
