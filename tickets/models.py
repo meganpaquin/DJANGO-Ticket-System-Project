@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
+
 class Ticket(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField()
@@ -14,7 +15,7 @@ class Ticket(models.Model):
     status_choices = models.TextChoices('status', 'Open Complete Archived')
     
     status = models.CharField(default="Open", choices=status_choices.choices, max_length=10)
-
+   
     #change the admin page list view to show the title
     def __str__(self):
         return self.title
