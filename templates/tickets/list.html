@@ -12,7 +12,7 @@
     <div class="tickets">
         <div class="open">
             <h2>Open Tickets</h2>
-            {% for ticket in ticket_list %}
+            {% for ticket in open_list %}
                 <div class="ticket-list">
                     <div class="ticket-contents">
                     <h4>{{ticket.title}}</h4>
@@ -31,7 +31,7 @@
 
         <div class="complete">
             <h2>Complete Tickets</h2>
-            {% for ticket in ticket_list %}
+            {% for ticket in completed_list %}
                 <div class="ticket-list">
                     <div class="ticket-contents">
                     <h4>{{ticket.title}}</h4>

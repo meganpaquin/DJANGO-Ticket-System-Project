@@ -8,7 +8,15 @@ class TicketListView(ListView):
     template_name = "tickets/list.html"
     model = Ticket
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
+        context['open_list'] = Ticket.objects.filter(status="Open").order_by('created_on').reverse()
+
+        context['completed_list'] = Ticket.objects.filter(status="Complete").order_by('created_on').reverse()
+
+        return context
+    
 class TicketDetailView(DetailView):
     template_name = "tickets/detail.html"
     model = Ticket
