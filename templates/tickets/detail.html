@@ -6,14 +6,15 @@
 
 
 {% block contents %}
-        <div class="container">
-            <h1>{{ticket.title}}</h1>
+    <div class="ticket-list">
+        <div class="ticket-contents">
+            <h4>{{ticket.title}}</h4>
             <h5>{{ticket.description}}</h5>
-            <h5>{{ticket.created_on}}</h5>
-            <h5>{{ticket.author.email}}</h5>
-            <h5>{{ticket.status}}</h5>
-            <br>
-            <br>
-        </div>
+            <h6>Crreated: {{ticket.created_on}}</h6>
+            <h6>Status: {{ticket.status}}</h6>
+            <a href="{% url 'update' ticket.id %}"><i class="bi bi-pencil-square"></i></a>
+            <a href="{% url 'delete' ticket.id %}"><i class="bi bi-trash3-fill"></i></a>
+        </div>  
+    </div>
 
 {% endblock contents %}

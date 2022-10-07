@@ -75,20 +75,20 @@ form label{
 
 .open{
     flex: 1;
-    background-color: #1e0022ed;
+    background-color: black;
     margin-right: 10px;
 }
 
 .complete{
     flex: 1;
-    background-color: #1e0022ed;
+    background-color: black;
 }
 
-h3{
-    color: black;
+h2{
+    color: #BB9039;
     text-align: center;
     padding: 10px;
-    background-color: #1E0022;
+    background-color: black;
 }
 
 .ticket-list{
@@ -110,3 +110,6 @@ h3{
     width:  380px;
 }
 
+.del-warn{
+    color: red;
+}
