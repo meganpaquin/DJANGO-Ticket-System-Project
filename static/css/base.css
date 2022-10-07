@@ -123,3 +123,12 @@ h2{
 .del-warn{
     color: red;
 }
+
+.person-icon{
+    text-align: center;
+}
+.bi-person-badge-fill{
+    font-size: 30px;
+    text-align: center;
+    color: #BB9039;
+}

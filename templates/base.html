@@ -46,9 +46,11 @@
 
                     {% if user.is_superuser %}
                         <li class="nav-item">
-                            <li><hr class="dropdown-divider"></li>
                             <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Admin</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{% url 'users' %}">Manager</a>
+                      </li>
                     {% endif %}
                 
 

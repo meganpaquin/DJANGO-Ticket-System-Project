@@ -22,8 +22,11 @@
                 </div>
                 <div class="ticket-icons">
                     <a href="{% url 'detail' ticket.id %}"><i class="bi bi-search"></i></a>
+
+                    {% if user == ticket.author or user.is_superuser %}
                     <a href="{% url 'update' ticket.id %}"><i class="bi bi-pencil-square"></i></a>
                     <a href="{% url 'delete' ticket.id %}"><i class="bi bi-trash3-fill"></i></a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
@@ -41,8 +44,11 @@
                 </div>
                 <div class="ticket-icons">
                     <a href="{% url 'detail' ticket.id %}"><i class="bi bi-search"></i></a>
+
+                    {% if user == ticket.author or user.is_superuser %}
                     <a href="{% url 'update' ticket.id %}"><i class="bi bi-pencil-square"></i></a>
                     <a href="{% url 'delete' ticket.id %}"><i class="bi bi-trash3-fill"></i></a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
@@ -60,8 +66,11 @@
                 </div>
                 <div class="ticket-icons">
                     <a href="{% url 'detail' ticket.id %}"><i class="bi bi-search"></i></a>
+                    
+                    {% if user == ticket.author or user.is_superuser %}
                     <a href="{% url 'update' ticket.id %}"><i class="bi bi-pencil-square"></i></a>
                     <a href="{% url 'delete' ticket.id %}"><i class="bi bi-trash3-fill"></i></a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

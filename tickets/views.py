@@ -3,8 +3,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Ticket
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth import get_user_model
 
-class TicketListView(ListView):
+class TicketListView(LoginRequiredMixin, ListView):
     template_name = "tickets/list.html"
     model = Ticket
 
@@ -38,8 +39,9 @@ class TicketUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     fields = ["title", "description", "status"]
 
     def test_func(self):
-        post_obj = self.get_object()
-        return post_obj.author == self.request.user
+        ticket_obj = self.get_object()
+        return ticket_obj.author == self.request.user
+
 
 class TicketDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "tickets/delete.html"
@@ -49,4 +51,6 @@ class TicketDelView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post_obj = self.get_object()
         return post_obj.author == self.request.user
+
+
 

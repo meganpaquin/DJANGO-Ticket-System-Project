@@ -9,7 +9,13 @@
     <h1>Update Ticket</h1>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+
+        <p>{{ form.title }}</p>
+        <p>{{ form.description }}</p>
+        {% if request.user.is_staff %}
+            <p>{{ form.status }}</p>
+        {% endif %}
+
         <input type="submit" value="Update" class="btn-form">
     </form>
 {% endblock contents %}

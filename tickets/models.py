@@ -10,10 +10,11 @@ class Ticket(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         get_user_model(),
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="author"
     )
     status_choices = models.TextChoices('status', 'Open In-Progress Complete Archived')
-    role_choices = models.TextChoices('roles', 'Customer, Agent, Manager')
+    role_choices = models.TextChoices('roles', 'Customer Agent Manager')
     
     status = models.CharField(default="Open", choices=status_choices.choices, max_length=15)
     role = models.CharField(default="Customer", choices=role_choices.choices, max_length=15)

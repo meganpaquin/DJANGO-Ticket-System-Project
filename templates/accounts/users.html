@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block contents %}
+    <h1>Users</h1>
+
+    {% if user.is_superuser %}
+    <table class="table table-light">
+        <tr>
+             <th scope="col">Username</th>
+             <th scope="col">First Name</th>
+             <th scope="col">Last Name</th>
+             <th scope="col">Email</th>
+             <th scope="col">Permissions</th>
+             <th scope="col">Change Permissions</th>
+        </tr> 
+        {% for result in user_list %}
+        <tr>
+            <td>{{ result.username }}</td>
+            <td>{{ result.first_name }}</td>
+            <td>{{ result.last_name }}</td>
+            <td>{{ result.email }}</td>
+            <td>
+                {% if result.is_superuser %}
+                    Manager
+                {% endif %}
+
+                {% if result.is_staff %}
+                    Agent
+                {% endif %}
+
+                {% if result.is_active %}
+                    Customer
+                {% endif %}
+            </td>
+            <td class="person-icon">
+                <a href=""><i class="bi bi-person-badge-fill"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+{% endblock contents %}
