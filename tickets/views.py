@@ -19,7 +19,7 @@ class TicketListView(LoginRequiredMixin, ListView):
         context['completed_list'] = Ticket.objects.filter(status="Complete").order_by('created_on').reverse()
 
         return context
-    
+
 class TicketDetailView(DetailView):
     template_name = "tickets/detail.html"
     model = Ticket

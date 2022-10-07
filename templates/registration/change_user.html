@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Change User
+{% endblock title %}
+
+{% block contents %}
+    <h1>Update User</h1>
+
+    <h2>Update the permissions for {{ user.first_name }}</h2>
+    
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label for="groups">Permission Groups:</label>
+            <span id="groups" name="groups">{{ form.groups }}</span>
+            <span class="helptext"> Designates that a user has all permissions assigned to a group without adding each permission individually.</span>
+        </p>
+
+        <p>
+            <label for="superuser">Superuser Status</label>
+            <span id="superuser" name="superuser">{{ form.is_superuser }}</span>
+            <span class="helptext">Designates that a user has all permissions.</span>
+        </p>
+
+        <p>
+            <label for="staff">Staff Status</label>
+            <span id="staff" name="staff">{{ form.is_staff }}</span>
+            <span class="helptext">Designates that a user has staff permissions.</span>
+        </p>
+
+        <p>
+            <label for="active">Active Status</label>
+            <span id="active" name="actuve">{{ form.is_active }}</span>
+            <span class="helptext">Designates that a user is active or inactive.</span>
+        </p>
+        
+        <input type="submit" value="Update" class="btn-form">
+
+    </form>
+
+{% endblock contents %}
+

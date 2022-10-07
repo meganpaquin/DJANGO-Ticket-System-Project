@@ -36,11 +36,32 @@
                 {% endif %}
             </td>
             <td class="person-icon">
-                <a href=""><i class="bi bi-person-badge-fill"></i></a>
+                <a href="{% url 'change_user' result.id %}"><i class="bi bi-person-badge-fill"></i></a>
             </td>
         </tr>
         {% endfor %}
     </table>
     {% endif %}
+
+    <h1>Tickets By Agent</h1>
+
+    <select name="agents" id="agents">
+        {% for user in user_list %}
+        {% if user.is_staff %}
+        <option value="{{ user.first_name }}" onclick="set_staff()">{{ user.first_name }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+
+    {% for ticket in ticket_list %}
+    <div class="ticket-list">
+        <div class="ticket-contents">
+        <p>{{ ticket.title }}</p>
+        <p>{{ ticket.assigned }}</p>
+        <p>{{ ticket.status }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
 
 {% endblock contents %}
