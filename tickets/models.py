@@ -12,9 +12,9 @@ class Ticket(models.Model):
         get_user_model(),
         on_delete=models.CASCADE
     )
-    status_choices = models.TextChoices('status', 'Open Complete Archived')
+    status_choices = models.TextChoices('status', 'Open In-Progress Complete Archived')
     
-    status = models.CharField(default="Open", choices=status_choices.choices, max_length=10)
+    status = models.CharField(default="Open", choices=status_choices.choices, max_length=15)
    
     #change the admin page list view to show the title
     def __str__(self):

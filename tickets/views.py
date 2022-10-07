@@ -13,6 +13,8 @@ class TicketListView(ListView):
 
         context['open_list'] = Ticket.objects.filter(status="Open").order_by('created_on').reverse()
 
+        context['progress_list'] = Ticket.objects.filter(status="In-Progress").order_by('created_on').reverse()
+
         context['completed_list'] = Ticket.objects.filter(status="Complete").order_by('created_on').reverse()
 
         return context

@@ -70,7 +70,6 @@ form label{
 
 .tickets{
     display: flex;
-
 }
 
 .open{
@@ -82,6 +81,13 @@ form label{
 .complete{
     flex: 1;
     background-color: black;
+}
+
+.pro{
+    flex: 1;
+    background-color: black;
+    margin-right: 10px;
+    height: auto;
 }
 
 h2{
@@ -102,12 +108,16 @@ h2{
 .ticket-icons{
     display: flex;
     flex-direction: column;
-    margin-left: 80px;
+    margin-left: 20px;
     font-size: 28px;
 }
 
 .ticket-contents{
-    width:  380px;
+    width:  80%
+}
+
+.ticket-contents h5, .ticket-contents h6{
+    font-size: 14px;
 }
 
 .del-warn{
