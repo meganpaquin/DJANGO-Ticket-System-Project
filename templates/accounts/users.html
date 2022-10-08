@@ -48,7 +48,7 @@
     <select name="agents" id="agents">
         {% for user in user_list %}
         {% if user.is_staff %}
-        <option value="{{ user.first_name }}" onclick="set_staff()">{{ user.first_name }}</option>
+        <option value="{{ user.first_name }}" onclick="set_staff('megan')">{{ user.first_name }}</option>
         {% endif %}
         {% endfor %}
     </select>

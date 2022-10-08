@@ -14,10 +14,8 @@ class Ticket(models.Model):
         related_name="author"
     )
     status_choices = models.TextChoices('status', 'Open In-Progress Complete Archived')
-    role_choices = models.TextChoices('roles', 'Customer Agent Manager')
-    
     status = models.CharField(default="Open", choices=status_choices.choices, max_length=15)
-    role = models.CharField(default="Customer", choices=role_choices.choices, max_length=15)
+    assigned = "megan"
    
     #change the admin page list view to show the title
     def __str__(self):

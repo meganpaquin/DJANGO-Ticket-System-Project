@@ -22,9 +22,9 @@ class SignUpView(CreateView):
 class ManagerPageView(TemplateView):
     template_name = "accounts/users.html"
 
-    def set_staff(self):
-        staff = self.request
-        return staff
+    def set_staff(args):
+         filter = Ticket.objects.filter(assigned=args)
+         return filter
 
     def get_context_data(self, **kwargs):
         user_model = User.objects.all()
